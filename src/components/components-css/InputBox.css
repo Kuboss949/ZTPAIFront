@@ -1,0 +1,24 @@
+.form-field{
+    padding-left: 1rem;
+    height: 3rem;
+    width: 13rem;
+    border-radius: 15px;
+    border: 1px solid #000;
+    background-color:  #EDE2DC;
+}
+
+.floating-label{
+    position: relative;
+    margin-top:20px;
+}
+
+.form-label {
+    position: absolute;
+    top: 3%; /* Adjust this value to position the label where you want */
+    left: 8%;
+    font-size: 0.9rem;
+    transform: translateY(-50%);
+    background-color: #EDE2DC;
+    padding: 3px 0;
+    font-weight: light;
+}
