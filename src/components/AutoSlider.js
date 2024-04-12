@@ -15,8 +15,8 @@ function AutoSlider() {
       slidesToShow: 4,
       slidesToScroll: 1,
       autoplay: true,
-      speed: 6000,
-      autoplaySpeed: 6000,
+      speed: 9000,
+      autoplaySpeed: 200,
       cssEase: "linear"
     };
     return (

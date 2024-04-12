@@ -6,7 +6,9 @@
     height: 100vh; /* Ensure it takes up the full height of the viewport */
     margin: 40px auto;
     width:70vw;
-  }
+}
+
+
   
 
 
@@ -41,4 +43,8 @@
 
 .clicked-button{
     background-color: rgb(187, 185, 185);
+}
+
+.reservation-button{
+    margin-top:15px;
 }
