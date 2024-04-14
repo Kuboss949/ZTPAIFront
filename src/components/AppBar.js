@@ -4,7 +4,7 @@ import './components-css/AppBar.css'
 const Link = ({ text, destination }) =>{
     return(
         <span>
-            <a href={destination} class="link">{text}</a>
+            <a href={destination} className="link header-link">{text}</a>
         </span>
     );
 

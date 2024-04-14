@@ -9,3 +9,7 @@
     flex-direction: column;
     gap: 20px;
 }
+
+.login-page-link{
+    color:black;
+}

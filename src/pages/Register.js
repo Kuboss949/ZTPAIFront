@@ -4,18 +4,20 @@ import "../css/Login.css";
 
 
 
-const Login = () => {
+const Register = () => {
   return (
     <div className='login-page flex-centered'>
         <img src='images/logo.png' alt='logo'/>
         <form className='flex-centered login-form' method='POST' action='/login'>
         <InputBox label='Email' name='email'/>
+        <InputBox label='Nr telefonu' name='phone'/>
         <InputBox label='Hasło' name='password' type='password'/>
-        <a href="/rejestracja" className='login-page-link'>Nie masz konta?</a>
-        <button className='site-button'>Zaloguj</button>
+        <InputBox label='Powtórz hasło' name='re-password' type='password'/>
+        <a href="/login" className='login-page-link'>Masz już konto?</a>
+        <button className='site-button'>Zarejestruj</button>
         </form>
       </div>
   );
 }
 
-export default Login;
+export default Register;
