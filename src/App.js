@@ -25,9 +25,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/rejestracja" element={<Register />} />
         <Route path="/rezerwacja" element={<Reservation />} />
-        <Route path="/moje-sesje" element={<GalleryOverview />} />
-        <Route path="/galeria" element={<ClientGallery />} />
-        <Route path="/konto" element={<Account />} />
+        <Route path="/moje-sesje/:id" element={<GalleryOverview />} />
+        <Route path="/galeria/:id" element={<ClientGallery />} />
+        <Route path="/konto/:id" element={<Account />} />
         <Route path="/cennik" element={<Price />} />
         <Route path="/dodaj-galerie" element={<AddGallery />} />
         <Route path="/dodaj-daty" element={<AddDates />} />
