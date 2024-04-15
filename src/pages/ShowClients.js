@@ -1,32 +1,81 @@
-import React from 'react';
+import {React, useState, useMemo} from 'react';
 import AppBar from '../components/AppBar.js';
-import {InputBox} from '../components/InputBox.js';
+import fakeData from "./clients.json";
 import "../css/ShowClients.css";
+import {useTable} from 'react-table'
 
 
 const ShowClients = () => {
+  const data = useMemo( () => fakeData, []);
+  const columns = useMemo(()=>[
+    {
+      Header: "ID",
+      accessor: "id",
+    },
+    {
+      Header: "Imię",
+      accessor: "name",
+    },
+    {
+      Header: "Nazwisko",
+      accessor: "surname",
+    },
+    {
+      Header: "Email",
+      accessor: "email",
+    },
+    {
+      Header: "Nr telefonu",
+      accessor: "phone",
+    },
+  ], 
+  []
+  )
+  
+  const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = useTable({columns, data})
+  
   return (
     <div>
     <AppBar />
     <h1 className='flex-centered site-header'>Twoje dane</h1>
-    <div className='account-forms-div'>
-      <form className='account-form' method='POST'>
-      <InputBox label='Imię' name='name' placeholder='Jan' />
-      <InputBox label='Nazwisko' name='surname' placeholder='Kowalski' />
-      <InputBox label='Email' name='email' placeholder='example@example.com' />
-      <InputBox label='Nr telefonu' name='phone' placeholder='111 222 333' />
-      <button className='site-button'>Zmień</button>
-      <button className='site-button'>Usuń konto</button>
-      </form>
-      <form className='account-form' method='POST'>
-      <InputBox label='Stare hasło' name='old-password' type='password' />
-      <InputBox label='Nowe hasło' name='new-password' type='password' />
-      <button className='site-button'>Zmień hasło</button>
-      </form>
+    <div className='flex-centered'>
+      <table {...getTableProps()}>
+        <thead>
+          {headerGroups.map((headerGroup) =>(
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) =>(
+                <th {...column.getHeaderGroupProps}>
+                    {column.render("Header")}
+                </th>
+              )
+            )}
+            </tr>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row) => {
+            prepareRow(row)
+            return(
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => (
+                  <td {...cell.getCellProps}>
+                    {cell.render("Cell")}
+                  </td>
+                ))}
+              </tr>
+            )
+          })}
+
+        </tbody>
+      </table>
+      
     </div>
     </div>
   );
 }
+
+
+
 
 
 
